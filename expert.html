@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+     <link rel='shortcut icon' type='image/x-icon' href='Images/LOGO.png' /><!--favicon-->
+     <title>Arduino Expert Level</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+<section id="nav-bar">
+    
+ 
+<nav class="navbar navbar-expand-lg navbar-light">
+     <a class="navbar-brand" href="index.html" style="display: flex; align-items: center;">
+          <img src="Images/LOGO2.png" alt="ArduiFUN Logo" style="width: 40px; height: auto;">
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+     <li class="nav-item">
+          <a class="nav-link" href="index.html">HOME</a>
+        </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">START LEARNING</a>
+          <div class="dropdown-menu">
+               <a class="dropdown-item" href="beginners.html" ><h5 style="color:#ffffff;" >BEGINNERS </h5></a>
+               <a class="dropdown-item" href="easy.html"><h5 style="color:#ffffff;" >EASY </h5></a>
+               <a class="dropdown-item" href="intermediate.html"><h5 style="color:#ffffff;" >INTERMEDIATE </h5></a>
+               <a class="dropdown-item" href="expert.html"><h5 style="color:#ffffff;" >EXPERT</h5></a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+    </ul>
+  </div>
+</nav>
+</section>  
+
+<!--------------banner section-------------->   
+    
+<section id="banner">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6">
+    <p class="promo-title">ARDUINO EXPERT LEVEL</p>
+    <p>The "Expert" level at ArduiFun is tailored for seasoned Arduino enthusiasts who are well-versed in both programming and hardware aspects. It offers advanced tutorials and challenging projects that push the boundaries of Arduino capabilities. </p>
+    <a href="#vid"><img src="Images/PLAY.gif" class="play-btn">Watch Tutorials</a>
+    </div> 
+    <div class="col-md-6 text-center">
+     <div class="d-flex justify-content-end align-items-center h-100">
+     <img src="Images/EXPERT.gif" alt="BEGINNERS" style="width: 100%; height: auto;">
+</div>
+    </div>
+    </div>    
+    </div>    
+    
+    <img src="Images/wave4.png" class="bottom-img">     
+    </section>  
+        
+    <!--main-->
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-8 footer-box">
+          <div class="maincontent" >
+               <div class="responsive-container">
+          <section id="vid">
+          </section>
+          <h1>Activity 1: Open and Close </h1>
+          <span class="grey-text"> In the open and close experiment using a combination of a servo motor and an ultrasonic sensor with an Arduino Uno, you create a dynamic system that responds to its surroundings. <br>The servo motor acts as the mechanism for opening and closing, while the ultrasonic sensor serves as the eyes, detecting the distance to an object. The Arduino Uno orchestrates the interaction by programming the servo motor to move based on the real-time feedback from the ultrasonic sensor. <br>For instance, you might design a setup where the servo motor opens a door or a gate when an object is detected within a certain range and closes it when the object moves away. This integration provides an interactive and automated solution, showcasing the versatility of combining different components in Arduino projects for practical applications.<br>
+            <br/>
+            <hsub>YouTube Video: </hsub> <br>
+Author : Hi-tech Electronics<br />
+Published Date : Aug 5, 2020</span><br>
+<br>
+<div class = "video-container">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/MU0v7y5JL5U?si=tGGhdf8K8tmjL_my" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div style="padding-left:0px;padding-bottom:54px; padding-top :20px;" > 
+     <hsub>Code : </hsub>
+     <span class="grey-text"><br>
+          #include <Servo.h> <br>
+               #define trigPin 5 <br>
+               #define echoPin 6 <br>
+               Servo servo; <br>
+               int sound = 250; <br>
+               void setup() { <br>
+               Serial.begin (9600); <br>
+               pinMode(trigPin, OUTPUT); <br>
+               pinMode(echoPin, INPUT); <br>
+               servo.attach(9); <br>
+               } <br>
+               void loop() { <br>
+               long duration, distance; <br>
+               digitalWrite(trigPin, LOW); <br>
+               delayMicroseconds(2); <br>
+               digitalWrite(trigPin, HIGH); <br>
+               delayMicroseconds(10); <br>
+               digitalWrite(trigPin, LOW); <br>
+               duration = pulseIn(echoPin, HIGH); <br>
+               distance = (duration/2) / 29.1; <br>
+               if (distance < 10) { <br>
+               Serial.println("the distance is less than 10"); <br>
+               servo.write(180); <br>
+               delay(1500); <br>
+               } <br>
+               else { <br>
+               servo.write(0); <br>
+               } <br>
+               if (distance > 60 || distance <= 0){ <br>
+               Serial.println("The distance is more than 60"); <br>
+               } <br>
+               else { <br>
+               Serial.print(distance); <br>
+               Serial.println(" cm"); <br>
+               } <br>
+               delay(500); <br>
+               }</span><br>
+    </div>
+    <hsub>Simulation :</hsub>
+    <div class = "video-container">
+     <iframe width="560" height="315" src="https://www.tinkercad.com/embed/6NpD3kjg1nS?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+     </div>
+<br>
+<br>
+     <h1>Activity 2: Distance Measurement System with Audio and Visual Feedback </h1>
+     <span class="grey-text"> This project combines an Arduino Uno, an ultrasonic distance sensor (HC-SR04), a buzzer, and an LED to measure distances and provide feedback using both audio and visual indicators. The ultrasonic sensor calculates the distance to an object and triggers the LED and buzzer to signal the proximity of the object.<br>
+       <br/>
+       <hsub>YouTube Video: </hsub> <br>
+Author : Russel Electronics<br />
+Published Date : January 15, 2022</span><br>
+<br>
+<div class = "video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/QEIl2Nxot5M?si=q6zVeY14jAA48ZhH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div style="padding-left:0px;padding-bottom:54px; padding-top :20px;" > 
+<hsub>Code : </hsub>
+<span class="grey-text"><br>
+  const int TRIG_PIN   = 6; <br>
+  const int ECHO_PIN   = 7; <br>
+  const int BUZZER_PIN = 3; <br>
+  const int Led_Pin = 13;<br>
+  const int DISTANCE_THRESHOLD = 50; <br>
+  <br>
+  float duration_us, distance_cm;<br>
+  <br>
+  void setup() {<br>
+    Serial.begin (9600);         <br>
+    pinMode(TRIG_PIN, OUTPUT);   <br>
+    pinMode(ECHO_PIN, INPUT);    <br>
+    pinMode(BUZZER_PIN, OUTPUT);<br>
+  }<br>
+  void loop() {<br>
+    <br>
+    digitalWrite(TRIG_PIN, HIGH);<br>
+    delayMicroseconds(10);<br>
+    digitalWrite(TRIG_PIN, LOW);<br>
+    <br>
+    duration_us = pulseIn(ECHO_PIN, HIGH);<br>
+    distance_cm = 0.017 * duration_us;<br>
+    <br>
+    if(distance_cm < DISTANCE_THRESHOLD)<br>
+      digitalWrite(BUZZER_PIN, HIGH);<br>
+    else<br>
+      digitalWrite(BUZZER_PIN, LOW);  <br>
+      <br>
+      <br>
+    Serial.print("distance: ");<br>
+    Serial.print(distance_cm);<br>
+    Serial.println(" cm");<br>
+    <br>
+    delay(500);<br>
+  }</span><br>
+</div>
+<hsub>Simulation :</hsub>
+<div class = "video-container">
+  <iframe width="560" height="315" src="https://www.tinkercad.com/embed/asAICeyWlbE?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+</div>
+    
+      
+
+     </div>
+    </div>
+  </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+<!------------footer section ------------>   
+<section id="footer">
+     <img src="Images/wave2.png" class="footer-img">   
+     <div class="container">
+         <hr>
+         <p class="copyright">ASSIGNMENT FOR CPE:19 EMERGING TECHNOLOGIES IN CPE </p>
+     </div>   
+     </section>     
+           
+        
+    <!------------Smooth Scroll--------------->   
+        <script src="smooth-scroll.js"></script>
+        <script>
+           var scroll = new SmoothScroll('a[href*="#"]');
+        </script>
+        
+        
+    
+    </body>
+    </html>

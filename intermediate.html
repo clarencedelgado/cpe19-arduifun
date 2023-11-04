@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+     <link rel='shortcut icon' type='image/x-icon' href='Images/LOGO.png' /><!--favicon-->
+     <title>Arduino Intermediate Level</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+<section id="nav-bar">
+    
+ 
+<nav class="navbar navbar-expand-lg navbar-light">
+     <a class="navbar-brand" href="index.html" style="display: flex; align-items: center;">
+          <img src="Images/LOGO2.png" alt="ArduiFUN Logo" style="width: 40px; height: auto;">
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+     <li class="nav-item">
+          <a class="nav-link" href="index.html">HOME</a>
+        </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">START LEARNING</a>
+          <div class="dropdown-menu">
+               <a class="dropdown-item" href="beginners.html" ><h5 style="color:#ffffff;" >BEGINNERS </h5></a>
+               <a class="dropdown-item" href="easy.html"><h5 style="color:#ffffff;" >EASY </h5></a>
+               <a class="dropdown-item" href="intermediate.html"><h5 style="color:#ffffff;" >INTERMEDIATE </h5></a>
+               <a class="dropdown-item" href="expert.html"><h5 style="color:#ffffff;" >EXPERT</h5></a>
+  
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+    </ul>
+  </div>
+</nav>
+</section>  
+
+<!--------------banner section-------------->   
+    
+<section id="banner">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6">
+    <p class="promo-title">ARDUINO INTERMEDIATE LEVEL</p>
+    <p>The "Intermediate" level is for learners who have already grasped the fundamental concepts of Arduino but are looking to expand their knowledge and skills. This level provides more complex projects and tutorials that delve deeper into Arduino programming and circuitry, allowing you to further develop your expertise.</p>
+    <a href="#vid"><img src="Images/PLAY.gif" class="play-btn">Watch Tutorials</a>
+    </div> 
+    <div class="col-md-6 text-center">
+     <div class="d-flex justify-content-end align-items-center h-100">
+     <img src="Images/INTERMEDIATE.gif" alt="BEGINNERS" style="width: 100%; height: auto;">
+</div>
+    </div>
+    </div>    
+    </div>    
+    
+    <img src="Images/wave4.png" class="bottom-img">     
+    </section>  
+        
+    <!--main-->
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-8 footer-box">
+          <div class="maincontent" >
+               <div class="responsive-container">
+          <section id="vid">
+          </section>
+          <h1>Activity 1: Ultrasonic </h1>
+          <span class="grey-text"> The HC-SR04 ultrasonic sensor uses SONAR to determine the distance of an object just like the bats do. It offers excellent non-contact range detection with high accuracy and stable readings in an easy-to-use package from 2 cm to 400 cm or 1” to 13 feet.<br>
+               The operation is not affected by sunlight or black material, although acoustically, soft materials like cloth can be difficult to detect. It comes complete with ultrasonic transmitter and receiver module.<br/>
+            <br/>
+            <hsub>YouTube Video: </hsub> <br>
+Author : Science Buddies<br />
+Published Date : 11 Months Ago</span><br>
+<br>
+<div class = "video-container">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/n-gJ00GTsNg?si=VjpCXbiTBvySbcFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div style="padding-left:0px;padding-bottom:54px; padding-top :20px;" > 
+     <hsub>Code : </hsub>
+     <span class="grey-text"><br>
+          const int pingPin = 7; <br>
+          const int echoPin = 6; <br>
+          <br>
+          void setup() {<br>
+             Serial.begin(9600); <br>
+          }<br>
+          <br>
+          void loop() {<br>
+             long duration, inches, cm;<br>
+             pinMode(pingPin, OUTPUT);<br>
+             digitalWrite(pingPin, LOW);<br>
+             delayMicroseconds(2);<br>
+             digitalWrite(pingPin, HIGH);<br>
+             delayMicroseconds(10);<br>
+             digitalWrite(pingPin, LOW);<br>
+             pinMode(echoPin, INPUT);<br>
+             duration = pulseIn(echoPin, HIGH);<br>
+             inches = microsecondsToInches(duration);<br>
+             cm = microsecondsToCentimeters(duration);<br>
+             Serial.print(inches);<br>
+             Serial.print("in, ");<br>
+             Serial.print(cm);<br>
+             Serial.print("cm");<br>
+             Serial.println();<br>
+             delay(100);<br>
+          }<br>
+          <br>
+          long microsecondsToInches(long microseconds) {<br>
+             return microseconds / 74 / 2;<br>
+          }<br>
+          <br>
+          long microsecondsToCentimeters(long microseconds) {<br>
+             return microseconds / 29 / 2;<br>
+          }</span><br>
+    </div>
+    <hsub>Simulation :</hsub>
+    <div class = "video-container">
+     <iframe width="560" height="315" src="https://www.tinkercad.com/embed/bAcROm7TEzM?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+     </div>
+     <br>
+     <br>
+     <h1>Activity 2: Distance Alarm </h1>
+     <span class="grey-text"> This project combines an Arduino Uno, an ultrasonic distance sensor (HC-SR04), a buzzer,  to measure distances and provide feedback using both audio and visual indicators. The ultrasonic sensor calculates the distance to an object and triggers buzzer to signal the proximity of the object.<br/>
+       <br/>
+       <hsub>YouTube Video: </hsub> <br>
+Author : N_Tech<br />
+Published Date : April 11, 2021</span><br>
+<br>
+<div class = "video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/xGdsn14rzc0?si=9ju3vmLI79iKO5Jj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+  <div style="padding-left:0px;padding-bottom:54px; padding-top :20px;" > 
+<hsub>Code : </hsub>
+<span class="grey-text"><br>
+  const int TRIG_PIN   = 6; <br>
+  const int ECHO_PIN   = 7;  <br>
+  const int BUZZER_PIN = 3;  <br>
+  const int DISTANCE_THRESHOLD = 50; <br>
+  <br>
+  float duration_us, distance_cm;<br>
+  <br>
+  void setup() {<br>
+    Serial.begin (9600);      <br>  
+    pinMode(TRIG_PIN, OUTPUT);   <br>
+    pinMode(ECHO_PIN, INPUT);    <br>
+    pinMode(BUZZER_PIN, OUTPUT); <br>
+  }<br>
+  <br>
+  void loop() {<br>
+    digitalWrite(TRIG_PIN, HIGH);<br>
+    delayMicroseconds(10);<br>
+    digitalWrite(TRIG_PIN, LOW);<br>
+    <br>
+    duration_us = pulseIn(ECHO_PIN, HIGH);<br>
+    distance_cm = 0.017 * duration_us;<br>
+    <br>
+    if(distance_cm < DISTANCE_THRESHOLD)<br>
+      digitalWrite(BUZZER_PIN, HIGH); <br>
+    else<br>
+      digitalWrite(BUZZER_PIN, LOW);  <br>
+      <br>
+    Serial.print("distance: ");<br>
+    Serial.print(distance_cm);<br>
+    Serial.println(" cm");<br>
+    <br>
+    delay(500);<br>
+  }<br>
+     <br>
+     long microsecondsToInches(long microseconds) {<br>
+        return microseconds / 74 / 2;<br>
+     }<br>
+     <br>
+     long microsecondsToCentimeters(long microseconds) {<br>
+        return microseconds / 29 / 2;<br>
+     }</span><br>
+</div>
+<hsub>Simulation :</hsub>
+<div class = "video-container">
+  <iframe width="560" height="315" src="https://www.tinkercad.com/embed/asAICeyWlbE?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+</div>
+    </div>
+  </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+<!------------footer section ------------>   
+<section id="footer">
+     <img src="Images/wave2.png" class="footer-img">   
+     <div class="container">
+         <hr>
+         <p class="copyright">ASSIGNMENT FOR CPE:19 EMERGING TECHNOLOGIES IN CPE </p>
+     </div>   
+     </section>     
+           
+        
+    <!------------Smooth Scroll--------------->   
+        <script src="smooth-scroll.js"></script>
+        <script>
+           var scroll = new SmoothScroll('a[href*="#"]');
+        </script>
+        
+        
+    
+    </body>
+    </html>
